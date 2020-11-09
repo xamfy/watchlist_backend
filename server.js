@@ -16,7 +16,7 @@ connection.once('open', () => {
   console.log("MongoDB database connection established successfully");
 })
 
-const DetailsRouter = require('./routes/Detail');
+const DetailsRouter = require('./Routes/Movies.route');
 
 app.use('/', DetailsRouter);
 

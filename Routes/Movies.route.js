@@ -1,5 +1,5 @@
 const router = require('express').Router();
-const Detail = require('../models/Detail.model');
+const Detail = require('../models/Movie.model');
 
 router.route('/').get((req, res) => {
   Detail.find()
