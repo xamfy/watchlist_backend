@@ -4,6 +4,9 @@ const createError = require("http-errors");
 require("dotenv").config();
 require("./helpers/init_mongodb");
 
+const swaggerUi = require("swagger-ui-express");
+const swaggerDocument = require("./swagger.json");
+
 const MoviesRouter = require("./Routes/Movies.route");
 
 const app = express();
@@ -12,6 +15,7 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
 app.use("/movies", MoviesRouter);
+app.use("/api-docs", swaggerUi.serve, swaggerUi.setup(swaggerDocument));
 
 app.use(async (req, res, next) => {
   next(createError.NotFound());
