@@ -2,15 +2,15 @@ const mongoose = require('mongoose');
 
 const Schema = mongoose.Schema;
 
-const userSchema = new Schema({
+const movieSchema = new Schema({
   title: { type: String, required: true },
   genre: { type: String, required: true },
   description: { type: String, required: true },
+  imageUrl: { type: String, required: true}
   //metadata: {},
-  
 });
 
 
-const Detail = mongoose.model('Detail', userSchema);
+const Movie = mongoose.model('Detail', movieSchema);
 
-module.exports = Detail;
+module.exports = Movie;
