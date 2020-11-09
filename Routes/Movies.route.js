@@ -11,11 +11,13 @@ router.route('/').post((req, res) => {
   const title = req.body.title;
   const genre  = req.body.genre;
   const description = req.body.description;
+  const imageUrl = req.body.imageUrl;
 
   const detail = new Detail({
     title,
     genre,
     description,
+    imageUrl
   });
 detail.save()
   .then(() => res.json('Movie added!'))
