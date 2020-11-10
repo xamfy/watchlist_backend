@@ -2,8 +2,15 @@ const router = require("express").Router();
 const Watchlist = require("../models/Watchlist.model");
 
 router.route("/").get((req, res) => {
-  Detail.find()
-    .then((Detail) => res.json(Detail))
+  Watchlist.find()
+    .then((Watchlist) => res.json(Watchlist))
+    .catch((err) => res.status(400).json("Error: " + err));
+});
+
+router.route("/:id").get((req, res) => {
+  Watchlist.findById(req.params.id)
+    .populate("movies")
+    .then((result) => res.send(result))
     .catch((err) => res.status(400).json("Error: " + err));
 });
 
