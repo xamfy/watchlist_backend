@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "nodemon app.js"
   },
   "keywords": [],
   "author": "",
@@ -19,7 +19,9 @@
     "jsonwebtoken": "^8.5.1",
     "mongoose": "^5.5.7",
     "morgan": "^1.10.0",
-    "nodemon": "^2.0.6",
     "swagger-ui-express": "^4.1.4"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.6"
   }
 }
