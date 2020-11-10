@@ -10,6 +10,6 @@ const movieSchema = new Schema({
   //metadata: {},
 });
 
-const Movie = mongoose.model("Detail", movieSchema);
+const Movie = mongoose.model("Movie", movieSchema);
 
 module.exports = Movie;
