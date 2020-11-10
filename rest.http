@@ -14,6 +14,6 @@ POST http://localhost:3000/watchlist/add
 Content-Type: application/json
 
 {
-    "watchlistId": "5faaa1f66acf38078bcf46f8",
+    "watchlistId": "5faaae8f4845692ec168cec7",
     "movieId": "5faa6cc2f7f486baa5c56176"
 }
