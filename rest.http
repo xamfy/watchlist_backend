@@ -14,7 +14,7 @@ POST http://localhost:3000/watchlist/add
 Content-Type: application/json
 
 {
-    "watchlistId": "5faaae8f4845692ec168cec7",
+    "watchlistId": "5faaad9168a7072b39023802",
     "movieId": "5faa6cc2f7f486baa5c56176"
 }
 
@@ -23,3 +23,12 @@ GET http://localhost:3000/watchlist
 
 ### Get movies by watchlist id
 GET http://localhost:3000/watchlist/5faaae8f4845692ec168cec7
+
+### Remove movie from watchlist
+DELETE  http://localhost:3000/watchlist/delete
+Content-Type: application/json
+
+{
+    "watchlistId": "5faaad9168a7072b39023802",
+    "movieId": "5faa6cc2f7f486baa5c56176"
+}

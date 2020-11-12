@@ -70,4 +70,30 @@ router.route("/add").post((req, res) => {
   // });
 });
 
+router.route("/delete").delete((req, res) => {
+  const watchlistId = req.body.watchlistId;
+  const movieId = req.body.movieId;
+
+  Watchlist.findById(watchlistId)
+    .then((watchlist) => {
+      // res.json(watchlist);
+      if (watchlist.movies.includes(movieId)) {
+        Watchlist.findByIdAndUpdate(watchlistId, { $pull: { movies: movieId } })
+          .then(() =>
+            res.json({
+              status_code: 200,
+              message: "Movie removed from watchlist",
+            })
+          )
+          .catch((err) => res.status(400).json("Error: " + err));
+      } else {
+        res.json({
+          status_code: 404,
+          message: "Movie doesn't exist in the watchlist",
+        });
+      }
+    })
+    .catch((err) => res.status(400).json("Error: " + err));
+});
+
 module.exports = router;
