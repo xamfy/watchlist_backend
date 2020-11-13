@@ -35,7 +35,10 @@ router.route("/add").post((req, res) => {
     .then((watchlist) => {
       // res.json(watchlist);
       if (watchlist.movies.includes(movieId)) {
-        res.send("already exists");
+        res.json({
+          status_code: 409,
+          message: "Movie already exists in the watchlist",
+        });
       } else {
         // res.send("doesn't exist");
         Watchlist.findByIdAndUpdate(
@@ -43,7 +46,12 @@ router.route("/add").post((req, res) => {
           { $push: { movies: movieId } },
           { new: true, useFindAndModify: false }
         )
-          .then(() => res.json("Movie added to watchlist"))
+          .then(() =>
+            res.json({
+              status_code: 200,
+              message: "Movie added to the watchlist",
+            })
+          )
           .catch((err) => res.status(400).json("Error: " + err));
       }
     })
